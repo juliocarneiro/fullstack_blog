@@ -80,7 +80,7 @@ export default class Home extends Component {
                       </a>*/}
                   </div>
                   <div className="card-footer text-muted">
-                    Postado em <b>{e.createdAt}</b> por <b>{e.user}</b>
+                    Postado em <b>{e.createdAt}</b> por <b>{e.user.name}</b>
                   </div>
                 </div>
               </div>

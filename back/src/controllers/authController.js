@@ -7,7 +7,7 @@ const User = mongoose.model("User");
 
 function generateToken(params = {}) {
   return jwt.sign(params, authConfig.secret, {
-    expiresIn: 86400
+    expiresIn: 10000
   });
 }
 
@@ -41,8 +41,11 @@ module.exports = {
   },
 
   async getUsers(req, res) {
-    const users = await User.find();
-
-    return res.json(users);
+    try {
+      const users = await User.find();
+      return res.json(users);
+    } catch (err) {
+      return res.status(400).send({ message: err.message });
+    }
   }
 };

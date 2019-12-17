@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
 import Loader from "../components/Loader";
 
 export default class Home extends Component {
@@ -20,9 +19,13 @@ export default class Home extends Component {
         });
       });
   };
+  useBeforeunload = () => {
+    localStorage.removeItem("@blog-Token");
+  };
 
   componentDidMount() {
     this.getData();
+    this.useBeforeunload();
   }
 
   prevData = async () => {
@@ -71,6 +74,7 @@ export default class Home extends Component {
                   <div className="card-body">
                     <h2 className="card-title">{e.title}</h2>
                     <p className="card-text">{e.description}</p>
+                    <p className="card-text">{e.content}</p>
                     {/*<a href="/" className="btn btn-primary">
                         Read More
                       </a>*/}

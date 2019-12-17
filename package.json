@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "back": "cd ./back && nodemon index.js",
-    "front": "cd ./front && npm run start"
+    "front": "cd ./front && npm start",
+    "install": "cd ./back && npm i && cd .. && cd ./front && npm i && npm i -g nodemon"
   },
   "author": "",
   "license": "ISC"
